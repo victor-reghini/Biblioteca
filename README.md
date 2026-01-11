@@ -201,10 +201,15 @@ POST /loan
 {
   "usuario": { "id": 1 },
   "livro": { "id": 1 },
-  "dataEmprestimo": "2026-01-11T00:00:00",
-  "status": "Emprestado"
+  "dataEmprestimo": "2026-01-09T00:00:00",
+  "dataDevolucao": "2026-01-12T00:00:00",
+  "status": "EMPRESTADO"
 }
 ```
+
+**Corpo da requisição**
+- `dataDevolucao` – Pode ser omitido caso não tenha sido devolvido ainda
+- `status` – EMPRESTADO ou DEVOLVIDO
 
 **Erros possíveis**
 - `400 BAD REQUEST` – Livro indisponível
