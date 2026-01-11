@@ -1,13 +1,11 @@
 package biblioteca.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
@@ -16,27 +14,22 @@ import java.util.Date;
 @Table(name = "LIVRO")
 public class Book {
     @Id
-    @Column
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column
     @NotNull
     String titulo;
 
-    @Column
     @NotNull
     String autor;
 
-    @Column
     @NotNull
-    String isbn;
+    BigInteger isbn;
 
-    @Column(name = "dataPublicacao")
     @NotNull
+    @Column(name = "data_publicacao")
     Date dataPublicacao;
 
-    @Column
     @NotNull
     String categoria;
 }

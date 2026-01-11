@@ -1,9 +1,6 @@
 package biblioteca.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,27 +13,26 @@ import java.util.Date;
 @Table(name = "EMPRESTIMO")
 public class Loan {
     @Id
-    @Column
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column(name = "usuario_id")
     @NotNull
-    Integer usuarioId;
+    @ManyToOne
+    @JoinColumn(name="usuario_id")
+    User usuario;
 
-    @Column(name = "livro_id")
     @NotNull
-    Integer livroId;
+    @ManyToOne
+    @JoinColumn(name="livro_id")
+    Book livro;
 
+    @NotNull
     @Column(name = "data_emprestimo")
-    @NotNull
     Date dataEmprestimo;
 
     @Column(name = "data_devolucao")
-    @NotNull
     Date dataDevolucao;
 
-    @Column
     @NotNull
     String status;
 }
