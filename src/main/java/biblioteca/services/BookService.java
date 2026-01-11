@@ -35,6 +35,10 @@ public class BookService {
         return repository.findAll();
     }
 
+    public List<Book> getRecommendationByUser(Integer id) {
+        return repository.getRecommendationByUserId(id);
+    }
+
     public void delete(Integer id) {
         repository.deleteById(id);
     }

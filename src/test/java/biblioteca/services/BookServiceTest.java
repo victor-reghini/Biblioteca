@@ -103,4 +103,29 @@ class BookServiceTest {
         verify(repository).deleteById(1);
         verifyNoMoreInteractions(repository);
     }
+
+    @Test
+    void deve_retornar_recomendacoes_da_mesma_categoria() {
+        Integer userId = 1;
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitulo("O Hobbit");
+
+        Book book2 = new Book();
+        book2.setId(2);
+        book2.setTitulo("Senhor dos Anéis");
+
+        List<Book> expectedBooks = List.of(book1, book2);
+
+        when(repository.getRecommendationByUserId(userId))
+                .thenReturn(expectedBooks);
+
+        List<Book> result = service.getRecommendationByUser(userId);
+
+        assertEquals(expectedBooks, result);
+        verify(repository, times(1))
+                .getRecommendationByUserId(userId);
+        verifyNoMoreInteractions(repository);
+    }
 }

@@ -24,6 +24,11 @@ public class BookController {
         return service.update(book);
     }
 
+    @GetMapping(path = "/recommendations/{id}")
+    List<Book> getRecommendationsByUserId(@PathVariable Integer id) {
+        return service.getRecommendationByUser(id);
+    }
+
     @GetMapping(path = "/{id}")
     Optional<Book> getById(@PathVariable Integer id) {
         return Optional.ofNullable(service.get(id));

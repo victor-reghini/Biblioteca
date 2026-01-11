@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.Date;
 import java.util.List;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -110,5 +112,32 @@ class BookControllerTest {
                 .andExpect(status().isOk());
 
         verify(service).delete(1);
+    }
+
+    @Test
+    void deve_retornar_recomendacoes_da_mesma_categoria_por_usuario() throws Exception {
+        Integer userId = 1;
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitulo("O Hobbit");
+
+        Book book2 = new Book();
+        book2.setId(2);
+        book2.setTitulo("O Senhor dos Anéis");
+
+        List<Book> books = List.of(book1, book2);
+
+        when(service.getRecommendationByUser(userId))
+                .thenReturn(books);
+
+        mockMvc.perform(get("/book/recommendations/{id}", userId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].titulo", is("O Hobbit")))
+                .andExpect(jsonPath("$[1].id", is(2)))
+                .andExpect(jsonPath("$[1].titulo", is("O Senhor dos Anéis")));
     }
 }
