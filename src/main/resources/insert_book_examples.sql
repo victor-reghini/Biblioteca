@@ -1,0 +1,18 @@
+INSERT INTO book (titulo, autor, isbn, data_publicacao, categoria) VALUES
+('O Hobbit', 'J.R.R. Tolkien', 9788595084742, '1937-09-21', 'Fantasia'),
+('O Senhor dos Anéis: A Sociedade do Anel', 'J.R.R. Tolkien', 9788533613379, '1954-07-29', 'Fantasia'),
+('O Senhor dos Anéis: As Duas Torres', 'J.R.R. Tolkien', 9788533613386, '1954-11-11', 'Fantasia'),
+('O Senhor dos Anéis: O Retorno do Rei', 'J.R.R. Tolkien', 9788533613393, '1955-10-20', 'Fantasia'),
+('1984', 'George Orwell', 9788535914842, '1949-06-08', 'Distopia'),
+('A Revolução dos Bichos', 'George Orwell', 9788535909558, '1945-08-17', 'Sátira Política'),
+('Dom Quixote', 'Miguel de Cervantes', 9788535902771, '1605-01-16', 'Clássico'),
+('Crime e Castigo', 'Fiódor Dostoiévski', 9788572326972, '1866-01-01', 'Clássico'),
+('O Pequeno Príncipe', 'Antoine de Saint-Exupéry', 9788522005238, '1943-04-06', 'Fábula'),
+('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 9788532530789, '1997-06-26', 'Fantasia'),
+('Clean Code', 'Robert C. Martin', 9780132350884, '2008-08-11', 'Tecnologia'),
+('Design Patterns', 'Erich Gamma et al.', 9780201633610, '1994-10-31', 'Tecnologia'),
+('Refactoring', 'Martin Fowler', 9780201485677, '1999-07-08', 'Tecnologia'),
+('O Código Da Vinci', 'Dan Brown', 9788575421131, '2003-03-18', 'Suspense'),
+('A Menina que Roubava Livros', 'Markus Zusak', 9788535914842, '2005-03-14', 'Drama'),
+('Neuromancer', 'William Gibson', 9788576570111, '1984-07-01', 'Ficção Científica'),
+('Duna', 'Frank Herbert', 9788576573136, '1965-08-01', 'Ficção Científica');
