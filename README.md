@@ -189,6 +189,17 @@ DELETE /book/{id}
 
 ---
 
+#### Sugestão livros por usuário
+
+```bash
+GET /book/recommendations/{userId}
+```
+
+- Caso o usuário não tenha empréstimos retorna todos os livros
+- FIXME - Caso tenha lido todos os livros de uma categoria e tenha apenas empréstimos dessa categoria, não retornará nada como sugestão
+
+---
+
 ### Empréstimos (`/loan`)
 
 #### Criar empréstimo
